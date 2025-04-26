@@ -1,0 +1,22 @@
+{
+    "Leaf Spot": {
+        "symptoms": "Brown or black circular spots on the leaves, often surrounded by yellow halos. Infected leaves may fall off prematurely.",
+        "treatment": "Remove and destroy affected leaves. Avoid overhead watering. Apply a copper-based fungicide if the problem persists."
+    },
+    "Powdery Mildew": {
+        "symptoms": "White or gray powdery patches on the surface of leaves, stems, and buds. Leaves may become distorted or stunted.",
+        "treatment": "Ensure good air circulation. Apply neem oil, sulfur spray, or potassium bicarbonate to control the spread."
+    },
+    "Rust": {
+        "symptoms": "Orange, yellow, or reddish-brown pustules on the underside of leaves. May cause leaf drop and reduced plant vigor.",
+        "treatment": "Prune and destroy infected leaves. Use sulfur or copper-based fungicides. Avoid wetting leaves during irrigation."
+    },
+    "Blight": {
+        "symptoms": "Sudden browning and wilting of leaves, black lesions on stems, and rapid plant decline.",
+        "treatment": "Remove and destroy infected plants. Avoid overhead irrigation. Apply appropriate fungicide and improve soil drainage."
+    },
+    "Healthy": {
+        "symptoms": "Leaves appear vibrant, green, and free of any visible spots, discoloration, or deformities.",
+        "treatment": "No treatment required. Continue with proper plant care, regular watering, and periodic monitoring for any changes."
+    }
+}
