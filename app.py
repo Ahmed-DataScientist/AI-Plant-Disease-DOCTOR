@@ -2,6 +2,16 @@ import streamlit as st
 from ultralytics import YOLO
 import json
 from PIL import Image
+from dotenv import load_dotenv
+import os
+import google.generativeai as genai
+
+# Load environment variables from .env file
+load_dotenv("security.env")
+
+# Configure Google Generative AI API with API Key from .env file
+google_api_key = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=google_api_key)
 
 # Load disease info JSON file
 with open("disease_info.json", "r") as f:
@@ -17,6 +27,30 @@ class_names = ['Leaf Spot', 'Powdery Mildew', 'Rust', 'Blight', 'Healthy']
 st.set_page_config(page_title="AI Plant Doctor", page_icon="🌿", layout="centered")
 st.title("🌱 AI Plant Doctor")
 st.caption("Upload a leaf image to detect disease, symptoms, and treatments!")
+
+# Sidebar for ChatBot
+st.sidebar.title("🌿 Chat with Plant Doctor")
+
+chat_input = st.sidebar.text_input("Ask a question about plant diseases:")
+
+if chat_input:
+    try:
+        # Initialize the Gemini 1.5 Flash model
+        gemini_model = genai.GenerativeModel(
+            model_name="gemini-2.0-flash",
+            generation_config={
+                "temperature": 0.7,
+                "max_output_tokens": 150
+            }
+        )
+
+        # Generate response
+        response = gemini_model.generate_content(chat_input)
+
+        # Display the response in the sidebar
+        st.sidebar.write(f"Bot Response: {response.text}")
+    except Exception as e:
+        st.sidebar.error(f"Error generating response: {e}")
 
 # Upload image
 uploaded_image = st.file_uploader("📤 Upload a leaf image", type=["jpg", "jpeg", "png"])
