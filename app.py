@@ -10,7 +10,7 @@ import google.generativeai as genai
 load_dotenv("security.env")
 
 # Configure Google Generative AI API with API Key from .env file
-google_api_key = os.getenv("GOOGLE_API_KEY")
+google_api_key = os.getenv("AIzaSyAgoVIGdbMhE_p2-us4rAxbr3lIVcBi1Ak")
 genai.configure(api_key=google_api_key)
 
 # Load disease info JSON file
